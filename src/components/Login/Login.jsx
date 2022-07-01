@@ -2,7 +2,12 @@
 
 export const Login = () => {
   return (
-    <div>Login</div>
+    <div>
+      <form>
+        <input type="email" name="email" id="email" />
+        <input type="password" name="password" id="password" />
+      </form>
+    </div>
   )
 }
 
