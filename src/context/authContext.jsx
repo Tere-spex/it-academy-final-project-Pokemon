@@ -1,14 +1,24 @@
-import { createContext } from "react";
+import { createContext, useContext  } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase'
 
-export const context = createContext();
+export const authContext = createContext();
+
+// Me creo un Hook personalizado para no tener que importar el useContext y el context en cada componente y en su lugar importar mi hook useAuth
+export const useAuth = () => {
+  const context =  useContext(authContext)
+  if(!context) throw new Error ('Not auth provider')
+  return context;
+}
 
 export const AuthProvider = ({children}) => {
-    const user = {
-        login: true,
-    };
+    const signup = (email, password) => createUserWithEmailAndPassword(auth, email, password); 
+
+    const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
+    
     return (
-        <context.Provider value={{user}}>
+        <authContext.Provider value={{ signup, login }}>
             {children}
-        </context.Provider>
+        </authContext.Provider>
     )
 }
