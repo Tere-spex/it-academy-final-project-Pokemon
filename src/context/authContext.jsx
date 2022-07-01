@@ -1,5 +1,5 @@
-import { createContext, useContext  } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createContext, useContext, useEffect, useState } from "react";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateCurrentUser } from 'firebase/auth';
 import { auth } from '../firebase'
 
 export const authContext = createContext();
@@ -12,12 +12,21 @@ export const useAuth = () => {
 }
 
 export const AuthProvider = ({children}) => {
+
+    const [user, setUser] = useState(null);
+
     const signup = (email, password) => createUserWithEmailAndPassword(auth, email, password); 
 
     const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
+    //onAuthStateChanged, me devuelve el Usuario que esta logeado.
+    useEffect(() => {
+        onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
+        })
+    }, []);
     
     return (
-        <authContext.Provider value={{ signup, login }}>
+        <authContext.Provider value={{ signup, login, user }}>
             {children}
         </authContext.Provider>
     )
