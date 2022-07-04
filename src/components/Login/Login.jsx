@@ -48,6 +48,7 @@ export const Login= () => {
   return (
     <>
     <div>
+      <h1>Login</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
