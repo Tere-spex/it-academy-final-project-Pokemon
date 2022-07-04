@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../context/authContext";
 import {useNavigate} from 'react-router-dom';
+import { RegisterStyle } from "./Register.styles";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -42,7 +43,8 @@ export const Register = () => {
 
   return (
     <>
-    <div>
+    <RegisterStyle >
+      <h2>CREATE YOUR ACCOUNT </h2>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
@@ -51,7 +53,7 @@ export const Register = () => {
         <input type="password" name="password" id="password" onChange={handleChange} placeholder="******" />
         <button>register</button>
       </form>
-    </div>
+    </RegisterStyle>
     </>
     
   )
