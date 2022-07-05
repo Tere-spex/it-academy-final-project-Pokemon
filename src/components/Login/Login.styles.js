@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const LoginStyle = styled.div`
  display: flex;
+ flex-direction: column;
  justify-content: center;
  align-items: center;
  form{
@@ -29,6 +30,16 @@ export const LoginStyle = styled.div`
       &:hover{
           background-color: #a8d9d2;
       }
+   }
+ }
+ .login-bar{
+  background-color: #e5e5e5;
+   border-bottom: 1px solid #676767;
+   border-top: 1px solid #676767;
+   width: 100%;
+   color: gray;
+   h5{
+    padding: 0px 25px;
    }
  }
 `;

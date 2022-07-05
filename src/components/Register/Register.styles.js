@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const RegisterStyle = styled.div`
  display: flex;
+ flex-direction: column;
  justify-content: center;
  align-items: center;
  form{
@@ -31,4 +32,14 @@ export const RegisterStyle = styled.div`
       }
    }
  }
+ .register-bar{
+  background-color: #e5e5e5;
+   border-bottom: 1px solid #676767;
+   border-top: 1px solid #676767;
+   width: 100%;
+   color: gray;
+   h5{
+    padding: 0px 25px;
+   }
+  }
 `;

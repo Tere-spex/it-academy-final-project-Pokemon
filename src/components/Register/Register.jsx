@@ -43,8 +43,10 @@ export const Register = () => {
 
   return (
     <>
-    <RegisterStyle >
-      <h2>CREATE YOUR ACCOUNT </h2>
+    <RegisterStyle>
+      <div className="register-bar">
+      <h5>CREATE YOUR ACCOUNT</h5>
+      </div>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../context/authContext";
 import {useNavigate} from 'react-router-dom';
 import {Alert} from '../Alert/Alert';
-import { LoginStyle } from "./Login.styles";
+import {LoginStyle} from "./Login.styles";
 
 export const Login = () => {
   const [user, setUser] = useState({
@@ -48,8 +48,11 @@ export const Login = () => {
   };
 
   return (
+    <>
     <LoginStyle>
-      <h1>Login</h1>
+      <div className="login-bar">
+        <h5>ENTER YOUR ACOUNT INFORMATION</h5>
+      </div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input type="email" name="email" id="email" onChange={handleChange} placeholder="youremail@hotmail.com" />
@@ -59,6 +62,8 @@ export const Login = () => {
         <button>Login</button>
       </form>
     </LoginStyle>
+    </>
+    
   )
 }
 

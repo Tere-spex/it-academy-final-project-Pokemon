@@ -20,7 +20,7 @@ export const Navbar = () => {
       <ul>
         <li><Link to="/pokemons">POKEMONS</Link></li>
         <li><Link to="/favorites">FAVORITES</Link></li>
-        <button onClick={handleLogout}>Logout</button>
+        <button onClick={handleLogout}>LOGOUT</button>
       </ul>
     </NavbarStyle>
   )

@@ -8,7 +8,6 @@ import {Footer} from './components/Footer/Footer'
 import { AuthProvider } from './context/authContext'
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 
-
 function App() {
   return (
     <>

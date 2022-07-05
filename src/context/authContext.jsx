@@ -30,8 +30,25 @@ export const AuthProvider = ({children}) => {
         })
     }, []);
     
+    //SOLICITUD A LA API
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+    const fetchApiPokemons = async () => {
+        try {
+          const resp = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=1154')
+          setData(await resp.json())
+
+        }catch{
+          console.log('error')
+        }
+      }
+      fetchApiPokemons()
+    }, []);
+
+
     return (
-        <authContext.Provider value={{ signup, login, user, logout, loading }}>
+        <authContext.Provider value={{ signup, login, user, logout, loading, data}}>
             {children}
         </authContext.Provider>
     )

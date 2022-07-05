@@ -9,7 +9,9 @@ export const Home = () => {
     <HomeStyle>
       <section>
         <h1>Sprint 9</h1>
-        <p>This is the sprint number nine, and i wanted to use some funcionalities that we didn't use in previous sprints. This is a pokemon aplication wen you can search the pokemon by name, and the card of the searched pokemon will be desplayed under the search section. You can also select your favorites pokemons and add then to the favorites section. If you decide one of the pokemon didn't like you anymore, you can erase this one of the favorites list. <b>By the way you need to log in the app to have access to the favorites section.</b></p>
+        <p><b>It is necessary to login to have access to the Home and pokemons section.</b></p>
+        <p>This App consists of 4 pages: Home, Login, Register and pokemons which is the main component here you can see the pokemon cards.</p>
+        <p>This is a pokemon aplication wen you can search the pokemon by name, and the card of the searched pokemon will be desplayed under the search section. You can also select your favorites pokemons and add then to the favorites section. If you decide one of the pokemon didn't like you anymore, you can erase this one of the favorites list.</p>
       </section>
     </HomeStyle>
     </>
