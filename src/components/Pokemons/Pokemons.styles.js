@@ -49,9 +49,6 @@ export const PokemonStyles = styled.div`
             color: black;
         }
     }
-    /* .searching-pokemon{
-   
-    } */
     .cards-container{
         padding: 25px;
         display: grid;
@@ -71,27 +68,6 @@ export const PokemonStyles = styled.div`
         a{
             text-decoration: none;
             color: black;
-        }
-    }
-    .favorites-container{
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        border-top: 1px solid gray;
-        width: 100%;
-        padding: 15px 0px;
-        color: gray;
-    }
-    .favorites-button{
-        background-color: transparent;
-        border: none;
-        color: red;
-        border: 1px solid gray;
-        border-radius: 20px;
-        cursor: pointer;
-        &:hover{
-            /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); */
-            transform: scale(1.09);
         }
     }
     .pagination{
@@ -116,6 +92,22 @@ export const PokemonStyles = styled.div`
                 font-weight: bold;
                 color: white;
                 }
+        }
+    }
+    @media screen and (max-width: 440px){
+        .search-container{
+            padding-top: 15px;
+            padding-bottom: 0px;
+        }
+        .cards-container{
+            display: grid;
+            grid-template-columns: repeat( 2, 1fr );
+        }
+        .card{
+            width: 150px;
+            a{
+                font-size: small;
+            }
         }
     }
 `;

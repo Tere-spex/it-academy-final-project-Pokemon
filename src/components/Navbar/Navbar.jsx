@@ -14,12 +14,11 @@ export const Navbar = () => {
   return (
     <NavbarStyle>
       <ul>
-        <li><Link to="/"><i className="fa-solid fa-house"></i></Link></li>
-        <li>Hello, {user.email}!</li>
+        <li><Link className="home" to="/"><i className="fa-solid fa-house"></i></Link></li>
+        <li className="saludation">Hello, {user.email}!</li>
       </ul>
       <ul>
         <li><Link to="/pokemons">POKEMONS</Link></li>
-        <li><Link to="/favorites">FAVORITES</Link></li>
         <button onClick={handleLogout}>LOGOUT</button>
       </ul>
     </NavbarStyle>

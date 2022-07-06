@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useAuth } from "../../context/authContext";
 import {useNavigate} from 'react-router-dom';
 import { RegisterStyle } from "./Register.styles";
+import { Alert } from "../Alert/Alert";
+import {LoginNav} from "../LoginNav/LoginNav";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -43,21 +45,24 @@ export const Register = () => {
 
   return (
     <>
-    <RegisterStyle>
-      <div className="register-bar">
-      <h5>CREATE YOUR ACCOUNT</h5>
+    <LoginNav />  
+    <RegisterStyle>  
+      <div className="form-container">
+        <div>
+          <h2>REGISTER</h2>
+          <h3>CREATE YOUR ACCOUNT</h3>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" id="email" onChange={handleChange} placeholder="youremail@hotmail.com" />
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" id="password" onChange={handleChange} placeholder="******" />
+          {error && <Alert message={error} />}
+          <button>Register</button>
+        </form>
       </div>
-      {error && <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" id="email" onChange={handleChange} placeholder="youremail@hotmail.com" />
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password" onChange={handleChange} placeholder="******" />
-        <button>register</button>
-      </form>
     </RegisterStyle>
     </>
-    
   )
 }
 

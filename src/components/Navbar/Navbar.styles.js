@@ -16,18 +16,24 @@ export const NavbarStyle = styled.div`
         align-items: center;
         list-style: none;
         gap: 15px;
-        li{
-            text-align: center;
-            a{
-            text-decoration: none;
-            color: gray;
-            font-weight: bold;
-                &:hover{
-                    color: #006257;
+            li{
+                text-align: center;
+                a{
+                text-decoration: none;
+                color: gray;
+                font-weight: bold;
+                    &:hover{
+                        color: #006257;
+                    }
                 }
             }
         }
-}
+        .home{
+            color: #006257;
+            &:hover{
+                    color: #e68009;
+                }
+        }
 button{
     background-color: #a8d9d2;
     border: 1px solid gray;
@@ -40,6 +46,11 @@ button{
     &:hover{
         background-color: #006257;
         color: white;
+    }
+}
+@media screen and (max-width: 440px){
+    .saludation{
+        display: none;
     }
 }
 `;

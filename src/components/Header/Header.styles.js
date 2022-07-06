@@ -40,4 +40,16 @@ export const HeaderStyles = styled.div`
         font-weight: bold;
         color: #fff;
     }
+    @media screen and (max-width: 440px){
+        height: 20vh;
+        .logo-container {
+            padding-left: 15px;
+            p{
+                padding: 1rem;
+            }
+            a{
+                font-size: 1rem;
+            }
+        } 
+    }
 `;

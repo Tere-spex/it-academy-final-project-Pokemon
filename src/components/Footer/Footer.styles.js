@@ -5,4 +5,8 @@ export const FooterStyles = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #e5e5e5;
+
+    @media screen and (max-width: 440px){
+
+    }
 `;

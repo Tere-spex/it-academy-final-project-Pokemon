@@ -9,13 +9,14 @@ export const Pokemons = () => {
   const [allpokemons, setAllPokemons] = useState(data);
 
   const [pokemons, setPokemons] = useState([]);
-  const [currentPageUrl, setCurrentPageUrl] = useState('https://pokeapi.co/api/v2/pokemon')
-  const [nextPageUrl, setNextPageUrl] = useState()
-  const [previousPageUrl, setPreviousPageUrl] = useState()
+  
+  const [currentPageUrl, setCurrentPageUrl] = useState('https://pokeapi.co/api/v2/pokemon');
+  const [nextPageUrl, setNextPageUrl] = useState();
+  const [previousPageUrl, setPreviousPageUrl] = useState();
 
   const[loading, setLoading] = useState(true);
 
-  const [searchPokemon, setSearchPokemon] = useState('')
+  const [searchPokemon, setSearchPokemon] = useState('');
 
   useEffect(() => {
     setAllPokemons(data.results)

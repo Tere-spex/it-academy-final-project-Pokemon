@@ -3,6 +3,8 @@ import { useAuth } from "../../context/authContext";
 import {useNavigate} from 'react-router-dom';
 import {Alert} from '../Alert/Alert';
 import {LoginStyle} from "./Login.styles";
+import { Link } from "react-router-dom";
+import {LoginNav} from "../LoginNav/LoginNav";
 
 export const Login = () => {
   const [user, setUser] = useState({
@@ -49,18 +51,25 @@ export const Login = () => {
 
   return (
     <>
+    <LoginNav />
     <LoginStyle>
-      <div className="login-bar">
-        <h5>ENTER YOUR ACOUNT INFORMATION</h5>
+      <div className="form-container">
+        <div>
+          <h2>LOGIN</h2>
+          <h3>ENTER YOUR ACOUNT INFORMATION</h3>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" id="email" onChange={handleChange} placeholder="youremail@hotmail.com" />
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" id="password" onChange={handleChange} placeholder="******" />
+          {error && <Alert message={error} />}
+          <button>Login</button>
+        </form>
+        <div className="register-acces">
+          <Link to={"/register"}>⚠ If you are not registered yet, create an account!</Link>
+        </div>
       </div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" id="email" onChange={handleChange} placeholder="youremail@hotmail.com" />
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password" onChange={handleChange} placeholder="******" />
-        {error && <Alert message={error} />}
-        <button>Login</button>
-      </form>
     </LoginStyle>
     </>
     

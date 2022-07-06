@@ -12,14 +12,11 @@ export const useAuth = () => {
 }
 
 export const AuthProvider = ({children}) => {
-
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const signup = (email, password) => createUserWithEmailAndPassword(auth, email, password); 
-
     const login = async (email, password) => signInWithEmailAndPassword(auth, email, password);
-
     const logout = () => signOut(auth);
 
     //onAuthStateChanged, me devuelve el Usuario que esta logeado.
@@ -30,7 +27,7 @@ export const AuthProvider = ({children}) => {
         })
     }, []);
     
-    //SOLICITUD A LA API
+    //SOLICITUD A LA API PARA TENER TODOS LOS POKEMONS, data LO UTILIZO EN POKEMONS PARA HACER EL SEARCH.
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -38,14 +35,12 @@ export const AuthProvider = ({children}) => {
         try {
           const resp = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=1154')
           setData(await resp.json())
-
         }catch{
           console.log('error')
         }
       }
       fetchApiPokemons()
     }, []);
-
 
     return (
         <authContext.Provider value={{ signup, login, user, logout, loading, data}}>
