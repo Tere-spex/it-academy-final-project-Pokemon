@@ -66,11 +66,23 @@ export const PokemonStyles = styled.div`
                 align-items: center;
                 border-radius: 20px;
                 box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
-                width: 100px;
-                a{
-                    text-decoration: none;
-                    color: black;
-                    font-size: 0.7rem;
+                img{
+                    width: fit-content;
+                }
+                h6{
+                    margin: 10px;
+                }
+                .delete-favorites-container{
+                    border-top: 1px solid gray;
+                    color: gray;
+                    display: flex;
+                    justify-content: center;
+                    border-top: 1px solid gray;
+                    width: 100%;
+                    padding: 5px 0px;
+                    button{
+                        color: gray;
+                    }
                 }
                 
             }
@@ -161,7 +173,7 @@ export const PokemonStyles = styled.div`
                 display: grid;
                 grid-template-columns: repeat( 3, 1fr );
                 .favorites-card{
-                    padding: 10px;
+                    padding: 20px 0px;
                     width: 80px;
                     height: 80px;
                     h6{
@@ -174,7 +186,7 @@ export const PokemonStyles = styled.div`
                     }
                 }
             }
-        }
+     }
     }
    
 `;

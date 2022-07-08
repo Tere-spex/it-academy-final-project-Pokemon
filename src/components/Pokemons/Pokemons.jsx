@@ -54,7 +54,7 @@ export const Pokemons = () => {
   const handlePokemonName = (e) => {
     setSearchPokemon(e.target.value)
   }
-
+  
   return (
       <>
       <Navbar />
@@ -84,7 +84,10 @@ export const Pokemons = () => {
             (pokemon) => (
               <div className='favorites-card' key={pokemon.name}>
                 <h6>{pokemon.name.toUpperCase()}</h6>
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/").reverse()[1]}.png`} alt={pokemon.name}/>
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/").reverse()[1]}.png`} alt={pokemon.name}/>
+                <div className='delete-favorites-container'>
+                  <button className='addTo-favorites-button' onClick={() => setFavoritesPokemons(favoritesPokemons.filter(favoritePokemon => favoritePokemon !== pokemon))}><i className="fa-solid fa-trash-can"></i></button>
+                </div>
               </div>))}
           </div>
         </section>: null}
