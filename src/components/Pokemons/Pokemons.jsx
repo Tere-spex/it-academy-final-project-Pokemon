@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import {PokemonStyles} from './Pokemons.styles'
+import React, {useState, useEffect} from 'react';
+import {PokemonStyles} from './Pokemons.styles';
 import { useAuth } from "../../context/authContext";
 import {Link} from 'react-router-dom';
 import { Navbar } from '../Navbar/Navbar';
@@ -17,6 +17,8 @@ export const Pokemons = () => {
   const[loading, setLoading] = useState(true);
 
   const [searchPokemon, setSearchPokemon] = useState('');
+
+  const [favoritesPokemons, setFavoritesPokemons] = useState([]);
 
   useEffect(() => {
     setAllPokemons(data.results)
@@ -58,26 +60,46 @@ export const Pokemons = () => {
       <Navbar />
       <PokemonStyles>
         <section className='search-container'>
-          <form className='search'>
+          <form>
             <label><i className="fa-solid fa-magnifying-glass"></i></label>
-            <input type='text' placeholder='Pokemon name' onChange={handlePokemonName}/>
+            <input type="text" placeholder="Buscar Pokemon" onChange={handlePokemonName}/>
           </form>
-          <div className='searching-pokemon'>
+          <div className='searching-pokemon'> 
             {allpokemons.filter(pokemon => pokemon.name.toUpperCase() === searchPokemon.toUpperCase()).map(pokemon =>
             <div className='search-card' key={pokemon.url}> 
-              <h3><Link to={`/${(pokemon.url).split("/").reverse()[1]}`}>{pokemon.name.toUpperCase()}</Link></h3>
+              <h3>{pokemon.name.toUpperCase()}</h3>
               <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/").reverse()[1]}.png`} alt={pokemon.name}/>
+              <div className='addTo-favorites-container'>
+                <label htmlFor="">Add to favorites</label>
+                <button className='addTo-favorites-button' onClick={() => setFavoritesPokemons([...favoritesPokemons, pokemon])}>❤</button>
+              </div>
             </div>)}
           </div>
         </section>
+        {favoritesPokemons.length > 0 ?
+        <section className='favorite-pokemons-section'>
+          <h3>FAVORITE POKEMONS</h3>
+          <div className='favorites-container'>
+          {favoritesPokemons.map(
+            (pokemon) => (
+              <div className='favorites-card' key={pokemon.name}>
+                <h6>{pokemon.name.toUpperCase()}</h6>
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/").reverse()[1]}.png`} alt={pokemon.name}/>
+              </div>))}
+          </div>
+        </section>: null}
         <main className='cards-container'>
         {pokemons.map((pokemon) => (
           <div className='card' key={pokemon.url}>
-            <h3><Link to={`/${(pokemon.url).split("/").reverse()[1]}`}>{pokemon.name.toUpperCase()}</Link></h3>
+            <h3>{pokemon.name.toUpperCase()}</h3>
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/").reverse()[1]}.png`} alt={pokemon.name}/>
+            <div className='addTo-favorites-container'>
+              <label htmlFor="">Add to favorites</label>
+              <button className='addTo-favorites-button' onClick={() => setFavoritesPokemons([...favoritesPokemons, pokemon])}>❤</button>
+            </div>
           </div>
         ))}
-      </main>
+        </main>
         <div className='pagination'>
           {handlePreviousPage && <button className='btn' onClick={previousPageUrl ? handlePreviousPage : null}>Previous</button>}
           {handleNextPage && <button className='btn' onClick={nextPageUrl ? handleNextPage : null}>Next</button>}

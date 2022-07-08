@@ -45,6 +45,7 @@ export const LoginStyle = styled.div`
   background-color: #eeeff0;
   margin: 25px;
   padding: 35px;
+  height: 60vh;
  }
  .login-message{
   background-color: #e5e5e5;

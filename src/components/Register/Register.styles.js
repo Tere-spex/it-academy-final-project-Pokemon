@@ -45,6 +45,7 @@ export const RegisterStyle = styled.div`
   background-color: #eeeff0;
   margin: 25px;
   padding: 35px;
+  height: 60vh;
  }
  .login-message{
   background-color: #e5e5e5;
@@ -52,13 +53,6 @@ export const RegisterStyle = styled.div`
   border-top: 1px solid #676767;
   width: 100%;
   color: gray;
- }
- .register-acces{
-  padding: 15px;
-  a{
-    color: red;
-    text-decoration: none;
-  }
  }
  @media screen and (max-width: 440px){
   h2, h3{

@@ -9,7 +9,7 @@ export const Home = () => {
       <section>
         <h1>Sprint 9</h1>
         <p>This App consists of 4 pages: Home, Login, Register and pokemons which is the main component here you can see the pokemon cards.</p>
-        <p>This is a pokemon aplication wen you can search the pokemon by name, and the card of the searched pokemon will be desplayed under the search section. You can also select your favorites pokemons and add then to the favorites section. If you decide one of the pokemon didn't like you anymore, you can erase this one of the favorites list.</p>
+        <p>This is a pokemon aplication wen you can search the pokemon by name, and the card of the searched pokemon will be desplayed under the search section.</p>
       </section>
     </HomeStyle>
     </>

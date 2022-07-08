@@ -52,5 +52,8 @@ button{
     .saludation{
         display: none;
     }
+    button{
+        width: 90px;
+    }
 }
 `;

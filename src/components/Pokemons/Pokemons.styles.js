@@ -6,13 +6,9 @@ export const PokemonStyles = styled.div`
     justify-content: center;
     align-items: center;
     .search-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center; 
-        padding: 25px; 
-        gap: 25px; 
-        .search{
+        background-color: white;
+        padding: 35px;
+        form{
             background-color: white;
             padding: 5px;
             border-radius: 5px;
@@ -43,14 +39,44 @@ export const PokemonStyles = styled.div`
         transition: 0.3s;
         width: 250px;
         background-color: #fbfdfd;
-        cursor: pointer;
+        margin: 25px;
         a{
             text-decoration: none;
             color: black;
         }
     }
+    .favorite-pokemons-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #e5eaeb;
+        margin-bottom: 25px; 
+        .favorites-container{
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat( 7, 1fr );
+            justify-content: center;
+            grid-gap: 20px;
+            .favorites-card{
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 20px;
+                box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+                width: 100px;
+                a{
+                    text-decoration: none;
+                    color: black;
+                    font-size: 0.7rem;
+                }
+                
+            }
+        }
+    }
     .cards-container{
-        padding: 25px;
         display: grid;
         grid-template-columns: repeat( 4, 1fr );
         justify-content: center;
@@ -68,6 +94,27 @@ export const PokemonStyles = styled.div`
         a{
             text-decoration: none;
             color: black;
+        }
+    }
+    .addTo-favorites-container{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        border-top: 1px solid gray;
+        width: 100%;
+        padding: 15px 0px;
+        color: gray;
+    }
+    .addTo-favorites-button{
+        background-color: transparent;
+        border: none;
+        color: red;
+        border: 1px solid gray;
+        border-radius: 20px;
+        cursor: pointer;
+        &:hover{
+            /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); */
+            transform: scale(1.09);
         }
     }
     .pagination{
@@ -95,10 +142,6 @@ export const PokemonStyles = styled.div`
         }
     }
     @media screen and (max-width: 440px){
-        .search-container{
-            padding-top: 15px;
-            padding-bottom: 0px;
-        }
         .cards-container{
             display: grid;
             grid-template-columns: repeat( 2, 1fr );
@@ -109,5 +152,29 @@ export const PokemonStyles = styled.div`
                 font-size: small;
             }
         }
+        label{
+            display: none;
+        }
+        .favorite-pokemons-section{
+            display: wrap;
+            .favorites-container{
+                display: grid;
+                grid-template-columns: repeat( 3, 1fr );
+                .favorites-card{
+                    padding: 10px;
+                    width: 80px;
+                    height: 80px;
+                    h6{
+                    margin: 0px;
+                    font-size: 0.5rem;
+                    }
+                    img{
+                        margin: 0px;
+                        width: 90%;
+                    }
+                }
+            }
+        }
     }
+   
 `;
