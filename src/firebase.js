@@ -7,13 +7,10 @@ import {  getFirestore}  from  "firebase/firestore" ;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBAvxcG5BRQ_E14QBjGoYckXb0xQYCgCEA",
-  authDomain: "pokemons-3415a.firebaseapp.com",
-  databaseURL: "https://pokemons-3415a-default-rtdb.firebaseio.com",
-  projectId: "pokemons-3415a",
-  storageBucket: "pokemons-3415a.appspot.com",
-  messagingSenderId: "871731056314",
-  appId: "1:871731056314:web:1b125186132a8e24c6fc83"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_PROJECT_ID + '.firebaseapp.com',
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_PROJECT_ID + ".appspot.com",
 };
 
 // Initialize Firebase

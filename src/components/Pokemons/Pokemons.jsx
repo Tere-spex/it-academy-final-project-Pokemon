@@ -54,11 +54,19 @@ export const Pokemons = () => {
   const handlePokemonName = (e) => {
     setSearchPokemon(e.target.value)
   }
-  
+
+  const handleAddFavorite = (pokemon) => {
+    if(favoritesPokemons.filter(p => p !== pokemon)){
+      setFavoritesPokemons([...favoritesPokemons, pokemon])
+    }else{
+      return alert('Pokemon already in favorites')
+    }
+  }
   return (
       <>
       <Navbar />
       <PokemonStyles>
+        {/* SEARCH AREA */}
         <section className='search-container'>
           <form>
             <label><i className="fa-solid fa-magnifying-glass"></i></label>
@@ -76,21 +84,24 @@ export const Pokemons = () => {
             </div>)}
           </div>
         </section>
+        {/* FAVORITES LIST */}
         {favoritesPokemons.length > 0 ?
         <section className='favorite-pokemons-section'>
           <h3>FAVORITE POKEMONS</h3>
           <div className='favorites-container'>
-          {favoritesPokemons.map(
+          {favoritesPokemons.filter((favorito) => favorito.name !== pokemons.name).map(
             (pokemon) => (
               <div className='favorites-card' key={pokemon.name}>
                 <h6>{pokemon.name.toUpperCase()}</h6>
                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/").reverse()[1]}.png`} alt={pokemon.name}/>
+                <span>1</span>
                 <div className='delete-favorites-container'>
                   <button className='addTo-favorites-button' onClick={() => setFavoritesPokemons(favoritesPokemons.filter(favoritePokemon => favoritePokemon !== pokemon))}><i className="fa-solid fa-trash-can"></i></button>
                 </div>
               </div>))}
           </div>
         </section>: null}
+        {/* POKEMON LIST */}
         <main className='cards-container'>
         {pokemons.map((pokemon) => (
           <div className='card' key={pokemon.url}>
@@ -103,6 +114,7 @@ export const Pokemons = () => {
           </div>
         ))}
         </main>
+        {/* PAGINATION */}
         <div className='pagination'>
           {handlePreviousPage && <button className='btn' onClick={previousPageUrl ? handlePreviousPage : null}>Previous</button>}
           {handleNextPage && <button className='btn' onClick={nextPageUrl ? handleNextPage : null}>Next</button>}
