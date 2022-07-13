@@ -19,6 +19,7 @@ export const Pokemons = () => {
   const [searchPokemon, setSearchPokemon] = useState('');
 
   const [favoritesPokemons, setFavoritesPokemons] = useState([]);
+  const [AddFavError, setAddFavError] = useState()
 
   useEffect(() => {
     setAllPokemons(data.results)
@@ -58,6 +59,8 @@ export const Pokemons = () => {
   const handleAddFavorite = (pokemon) => {
     if(favoritesPokemons.indexOf(pokemon) === -1){
       setFavoritesPokemons([...favoritesPokemons, pokemon])
+    }else{
+      setAddFavError(`${pokemon.name.toUpperCase()} already exist in favorites`)
     }
   }
   return (
@@ -77,7 +80,7 @@ export const Pokemons = () => {
               <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/").reverse()[1]}.png`} alt={pokemon.name}/>
               <div className='addTo-favorites-container'>
                 <label htmlFor="">Add to favorites</label>
-                <button className='addTo-favorites-button' onClick={() => setFavoritesPokemons([...favoritesPokemons, pokemon])}>❤</button>
+                <button className='addTo-favorites-button' onClick={event => handleAddFavorite(pokemon)}>❤</button>
               </div>
             </div>)}
           </div>
