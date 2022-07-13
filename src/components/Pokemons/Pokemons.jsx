@@ -56,10 +56,8 @@ export const Pokemons = () => {
   }
 
   const handleAddFavorite = (pokemon) => {
-    if(favoritesPokemons.filter(p => p !== pokemon)){
+    if(favoritesPokemons.indexOf(pokemon) === -1){
       setFavoritesPokemons([...favoritesPokemons, pokemon])
-    }else{
-      return alert('Pokemon already in favorites')
     }
   }
   return (
@@ -94,7 +92,6 @@ export const Pokemons = () => {
               <div className='favorites-card' key={pokemon.name}>
                 <h6>{pokemon.name.toUpperCase()}</h6>
                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/").reverse()[1]}.png`} alt={pokemon.name}/>
-                <span>1</span>
                 <div className='delete-favorites-container'>
                   <button className='addTo-favorites-button' onClick={() => setFavoritesPokemons(favoritesPokemons.filter(favoritePokemon => favoritePokemon !== pokemon))}><i className="fa-solid fa-trash-can"></i></button>
                 </div>
@@ -109,7 +106,7 @@ export const Pokemons = () => {
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/").reverse()[1]}.png`} alt={pokemon.name}/>
             <div className='addTo-favorites-container'>
               <label htmlFor="">Add to favorites</label>
-              <button className='addTo-favorites-button' onClick={() => setFavoritesPokemons([...favoritesPokemons, pokemon])}>❤</button>
+              <button className='addTo-favorites-button' onClick={event => handleAddFavorite(pokemon)}>❤</button>
             </div>
           </div>
         ))}
