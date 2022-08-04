@@ -4,6 +4,7 @@ import { auth } from '../firebase'
 
 export const authContext = createContext();
 
+
 // Me creo un Hook personalizado para no tener que importar el useContext y el context en cada componente y en su lugar importar mi hook useAuth
 export const useAuth = () => {
   const context =  useContext(authContext)
